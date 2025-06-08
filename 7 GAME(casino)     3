@@ -1,0 +1,42 @@
+import random
+import time
+import values
+print("THE 7 GAME:")
+time.sleep(0.25)
+print("2 dies will be rolled")
+print('pick either above or below 7 and see if you win...')
+    
+class dice:
+  def roll(self):
+      first = random.randint(1,6)
+      second = random.randint(1,6)
+      total = first + second
+      return (first , second, total)
+house_dice = dice()
+
+def values(first ,second):
+    print(f'the first dice has rolled a {first}')
+    print(f"the second dice has rolled a {second}")
+
+while True:
+    choice = input("Above or Below 7:").lower()
+    first, second, total = house_dice.roll()
+    time.sleep(0.35)
+    values.values(first, second)
+    time.sleep(0.35)
+
+    if choice == "above" and total > 7:
+        print(f"total is {total} you have won!!")
+    elif choice == "below" and total < 7:
+        print(f"total is {total} you have won!!")
+    elif total == 7:
+        print(f"total is {total}, its a draw")
+    else:
+        print(f"total is {total} you have lost")
+
+
+    play_again = input("do you want to play again? yes / no: ").lower()
+    time.sleep(0.35)
+    if play_again != "yes":
+         print("it was a fun time, make sure to play again ;)")
+         break
